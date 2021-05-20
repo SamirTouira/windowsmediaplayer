@@ -16,6 +16,7 @@ namespace WindowsFormsApp1
         {
             InitializeComponent();
             track_volume.Value = 50;
+            lbl_volume.Text = "50%";
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -39,6 +40,7 @@ namespace WindowsFormsApp1
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
             player.settings.volume = track_volume.Value;
+            lbl_volume.Text = track_volume.Value.ToString() + "%";
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -93,6 +95,11 @@ namespace WindowsFormsApp1
             {
 
             }
+        }
+
+        private void p_bar_MouseDown(object sender, MouseEventArgs e)
+        {
+            player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
         }
 
         private void btn_open_Click(object sender, EventArgs e)
