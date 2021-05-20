@@ -154,7 +154,7 @@
             this.pic_art.Location = new System.Drawing.Point(12, 99);
             this.pic_art.Name = "pic_art";
             this.pic_art.Size = new System.Drawing.Size(194, 145);
-            this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pic_art.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pic_art.TabIndex = 8;
             this.pic_art.TabStop = false;
             // 
