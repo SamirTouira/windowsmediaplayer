@@ -15,6 +15,7 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+            track_volume.Value = 50;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -37,7 +38,7 @@ namespace WindowsFormsApp1
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-
+            player.settings.volume = track_volume.Value;
         }
 
         private void label3_Click(object sender, EventArgs e)

@@ -159,12 +159,11 @@
             // 
             // player
             // 
-            this.player.Dock = System.Windows.Forms.DockStyle.Top;
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(0, 0);
+            this.player.Location = new System.Drawing.Point(138, 0);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(634, 75);
+            this.player.Size = new System.Drawing.Size(337, 75);
             this.player.TabIndex = 9;
             this.player.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
             // 
