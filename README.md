@@ -8,7 +8,7 @@ L'objectif principal est donc d'implémenter trois fonctionnalités dans l'appli
 - Utilisation du moteur de binding
 
 ## Installer Microsoft Visual Studio
-1. Télécharger Visual Studio Communauté 2019 : https://visualstudio.microsoft.com/fr/downloads/
+1. Télécharger Visual Studio Communauté 2017 : https://visualstudio.microsoft.com/fr/downloads/
 
 2. Une fois téléchargé et installé (à laisser si possible les répértoires d'installation par défaut), cliquez sur "Lancer"
 
