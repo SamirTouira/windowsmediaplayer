@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.btn_preview = new System.Windows.Forms.Button();
@@ -42,12 +43,15 @@
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
             this.track_volume = new System.Windows.Forms.TrackBar();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_volume = new System.Windows.Forms.Label();
             this.lbl_time_start = new System.Windows.Forms.Label();
             this.lbl_time_end = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btn_preview
@@ -60,6 +64,7 @@
             this.btn_preview.TabIndex = 0;
             this.btn_preview.Text = "Preview";
             this.btn_preview.UseVisualStyleBackColor = true;
+            this.btn_preview.Click += new System.EventHandler(this.btn_preview_Click);
             // 
             // btn_next
             // 
@@ -71,7 +76,7 @@
             this.btn_next.TabIndex = 1;
             this.btn_next.Text = "Next";
             this.btn_next.UseVisualStyleBackColor = true;
-            this.btn_next.Click += new System.EventHandler(this.button1_Click);
+            this.btn_next.Click += new System.EventHandler(this.btn_next_Click);
             // 
             // btn_play
             // 
@@ -83,6 +88,7 @@
             this.btn_play.TabIndex = 2;
             this.btn_play.Text = "Play";
             this.btn_play.UseVisualStyleBackColor = true;
+            this.btn_play.Click += new System.EventHandler(this.btn_play_Click);
             // 
             // btn_pause
             // 
@@ -94,6 +100,7 @@
             this.btn_pause.TabIndex = 3;
             this.btn_pause.Text = "Pause";
             this.btn_pause.UseVisualStyleBackColor = true;
+            this.btn_pause.Click += new System.EventHandler(this.btn_pause_Click);
             // 
             // btn_stop
             // 
@@ -105,6 +112,7 @@
             this.btn_stop.TabIndex = 4;
             this.btn_stop.Text = "Stop";
             this.btn_stop.UseVisualStyleBackColor = true;
+            this.btn_stop.Click += new System.EventHandler(this.btn_stop_Click);
             // 
             // btn_open
             // 
@@ -116,10 +124,11 @@
             this.btn_open.TabIndex = 5;
             this.btn_open.Text = "Open";
             this.btn_open.UseVisualStyleBackColor = true;
+            this.btn_open.Click += new System.EventHandler(this.btn_open_Click);
             // 
             // p_bar
             // 
-            this.p_bar.Location = new System.Drawing.Point(12, 263);
+            this.p_bar.Location = new System.Drawing.Point(9, 268);
             this.p_bar.Name = "p_bar";
             this.p_bar.Size = new System.Drawing.Size(610, 17);
             this.p_bar.TabIndex = 6;
@@ -135,9 +144,11 @@
             this.track_list.Name = "track_list";
             this.track_list.Size = new System.Drawing.Size(359, 145);
             this.track_list.TabIndex = 7;
+            this.track_list.SelectedIndexChanged += new System.EventHandler(this.track_list_SelectedIndexChanged);
             // 
             // pic_art
             // 
+            this.pic_art.BackColor = System.Drawing.Color.LightSteelBlue;
             this.pic_art.Image = ((System.Drawing.Image)(resources.GetObject("pic_art.Image")));
             this.pic_art.Location = new System.Drawing.Point(12, 99);
             this.pic_art.Name = "pic_art";
@@ -159,6 +170,7 @@
             // 
             // track_volume
             // 
+            this.track_volume.BackColor = System.Drawing.Color.LightSteelBlue;
             this.track_volume.Location = new System.Drawing.Point(577, 99);
             this.track_volume.Maximum = 100;
             this.track_volume.Name = "track_volume";
@@ -171,33 +183,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(574, 247);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(565, 158);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 13);
             this.label1.TabIndex = 11;
             this.label1.Text = "Volume";
             // 
-            // label2
+            // lbl_volume
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(574, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 12;
-            this.label2.Text = "100%";
+            this.lbl_volume.AutoSize = true;
+            this.lbl_volume.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lbl_volume.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_volume.ForeColor = System.Drawing.Color.Black;
+            this.lbl_volume.Location = new System.Drawing.Point(567, 3);
+            this.lbl_volume.Name = "lbl_volume";
+            this.lbl_volume.Size = new System.Drawing.Size(37, 13);
+            this.lbl_volume.TabIndex = 12;
+            this.lbl_volume.Text = "100%";
             // 
             // lbl_time_start
             // 
             this.lbl_time_start.AutoSize = true;
-            this.lbl_time_start.Font = new System.Drawing.Font("Bullpen 3D", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time_start.Font = new System.Drawing.Font("Bullpen 3D", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time_start.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbl_time_start.Location = new System.Drawing.Point(12, 28);
             this.lbl_time_start.Name = "lbl_time_start";
-            this.lbl_time_start.Size = new System.Drawing.Size(130, 47);
+            this.lbl_time_start.Size = new System.Drawing.Size(120, 43);
             this.lbl_time_start.TabIndex = 13;
             this.lbl_time_start.Text = "00:00";
             this.lbl_time_start.Click += new System.EventHandler(this.label3_Click);
@@ -205,13 +219,28 @@
             // lbl_time_end
             // 
             this.lbl_time_end.AutoSize = true;
-            this.lbl_time_end.Font = new System.Drawing.Font("Bullpen 3D", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time_end.Font = new System.Drawing.Font("Bullpen 3D", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_time_end.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.lbl_time_end.Location = new System.Drawing.Point(481, 28);
             this.lbl_time_end.Name = "lbl_time_end";
-            this.lbl_time_end.Size = new System.Drawing.Size(130, 47);
+            this.lbl_time_end.Size = new System.Drawing.Size(120, 43);
             this.lbl_time_end.TabIndex = 14;
             this.lbl_time_end.Text = "00:00";
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.lbl_volume);
+            this.panel2.Location = new System.Drawing.Point(9, 83);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(616, 174);
+            this.panel2.TabIndex = 15;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -221,8 +250,6 @@
             this.ClientSize = new System.Drawing.Size(634, 341);
             this.Controls.Add(this.lbl_time_end);
             this.Controls.Add(this.lbl_time_start);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.track_volume);
             this.Controls.Add(this.player);
             this.Controls.Add(this.pic_art);
@@ -234,6 +261,7 @@
             this.Controls.Add(this.btn_play);
             this.Controls.Add(this.btn_next);
             this.Controls.Add(this.btn_preview);
+            this.Controls.Add(this.panel2);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "Form1";
             this.Text = "Form1";
@@ -241,6 +269,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,9 +291,11 @@
         private AxWMPLib.AxWindowsMediaPlayer player;
         private System.Windows.Forms.TrackBar track_volume;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_volume;
         private System.Windows.Forms.Label lbl_time_start;
         private System.Windows.Forms.Label lbl_time_end;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
