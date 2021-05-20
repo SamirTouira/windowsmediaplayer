@@ -40,13 +40,20 @@
             this.track_list = new System.Windows.Forms.ListBox();
             this.pic_art = new System.Windows.Forms.PictureBox();
             this.player = new AxWMPLib.AxWindowsMediaPlayer();
+            this.track_volume = new System.Windows.Forms.TrackBar();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lbl_time_start = new System.Windows.Forms.Label();
+            this.lbl_time_end = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_preview
             // 
             this.btn_preview.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_preview.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_preview.Location = new System.Drawing.Point(14, 299);
             this.btn_preview.Name = "btn_preview";
             this.btn_preview.Size = new System.Drawing.Size(75, 23);
@@ -57,6 +64,7 @@
             // btn_next
             // 
             this.btn_next.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_next.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_next.Location = new System.Drawing.Point(94, 299);
             this.btn_next.Name = "btn_next";
             this.btn_next.Size = new System.Drawing.Size(75, 23);
@@ -68,6 +76,7 @@
             // btn_play
             // 
             this.btn_play.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_play.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_play.Location = new System.Drawing.Point(175, 299);
             this.btn_play.Name = "btn_play";
             this.btn_play.Size = new System.Drawing.Size(75, 23);
@@ -78,6 +87,7 @@
             // btn_pause
             // 
             this.btn_pause.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_pause.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_pause.Location = new System.Drawing.Point(256, 299);
             this.btn_pause.Name = "btn_pause";
             this.btn_pause.Size = new System.Drawing.Size(75, 23);
@@ -88,6 +98,7 @@
             // btn_stop
             // 
             this.btn_stop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_stop.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_stop.Location = new System.Drawing.Point(338, 299);
             this.btn_stop.Name = "btn_stop";
             this.btn_stop.Size = new System.Drawing.Size(75, 23);
@@ -98,6 +109,7 @@
             // btn_open
             // 
             this.btn_open.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_open.ForeColor = System.Drawing.SystemColors.MenuHighlight;
             this.btn_open.Location = new System.Drawing.Point(418, 299);
             this.btn_open.Name = "btn_open";
             this.btn_open.Size = new System.Drawing.Size(204, 23);
@@ -107,7 +119,7 @@
             // 
             // p_bar
             // 
-            this.p_bar.Location = new System.Drawing.Point(12, 276);
+            this.p_bar.Location = new System.Drawing.Point(12, 263);
             this.p_bar.Name = "p_bar";
             this.p_bar.Size = new System.Drawing.Size(610, 17);
             this.p_bar.TabIndex = 6;
@@ -121,7 +133,7 @@
             this.track_list.FormattingEnabled = true;
             this.track_list.Location = new System.Drawing.Point(212, 99);
             this.track_list.Name = "track_list";
-            this.track_list.Size = new System.Drawing.Size(408, 145);
+            this.track_list.Size = new System.Drawing.Size(359, 145);
             this.track_list.TabIndex = 7;
             // 
             // pic_art
@@ -136,19 +148,82 @@
             // 
             // player
             // 
+            this.player.Dock = System.Windows.Forms.DockStyle.Top;
             this.player.Enabled = true;
-            this.player.Location = new System.Drawing.Point(12, 13);
+            this.player.Location = new System.Drawing.Point(0, 0);
             this.player.Name = "player";
             this.player.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("player.OcxState")));
-            this.player.Size = new System.Drawing.Size(608, 34);
+            this.player.Size = new System.Drawing.Size(634, 75);
             this.player.TabIndex = 9;
             this.player.Enter += new System.EventHandler(this.axWindowsMediaPlayer1_Enter);
+            // 
+            // track_volume
+            // 
+            this.track_volume.Location = new System.Drawing.Point(577, 99);
+            this.track_volume.Maximum = 100;
+            this.track_volume.Name = "track_volume";
+            this.track_volume.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.track_volume.Size = new System.Drawing.Size(45, 145);
+            this.track_volume.TabIndex = 10;
+            this.track_volume.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.track_volume.Scroll += new System.EventHandler(this.trackBar1_Scroll);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(574, 247);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(48, 13);
+            this.label1.TabIndex = 11;
+            this.label1.Text = "Volume";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(574, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 13);
+            this.label2.TabIndex = 12;
+            this.label2.Text = "100%";
+            // 
+            // lbl_time_start
+            // 
+            this.lbl_time_start.AutoSize = true;
+            this.lbl_time_start.Font = new System.Drawing.Font("Bullpen 3D", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time_start.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_time_start.Location = new System.Drawing.Point(12, 28);
+            this.lbl_time_start.Name = "lbl_time_start";
+            this.lbl_time_start.Size = new System.Drawing.Size(130, 47);
+            this.lbl_time_start.TabIndex = 13;
+            this.lbl_time_start.Text = "00:00";
+            this.lbl_time_start.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // lbl_time_end
+            // 
+            this.lbl_time_end.AutoSize = true;
+            this.lbl_time_end.Font = new System.Drawing.Font("Bullpen 3D", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_time_end.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.lbl_time_end.Location = new System.Drawing.Point(481, 28);
+            this.lbl_time_end.Name = "lbl_time_end";
+            this.lbl_time_end.Size = new System.Drawing.Size(130, 47);
+            this.lbl_time_end.TabIndex = 14;
+            this.lbl_time_end.Text = "00:00";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(634, 341);
+            this.Controls.Add(this.lbl_time_end);
+            this.Controls.Add(this.lbl_time_start);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.track_volume);
             this.Controls.Add(this.player);
             this.Controls.Add(this.pic_art);
             this.Controls.Add(this.track_list);
@@ -165,7 +240,9 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.track_volume)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -182,6 +259,11 @@
         private System.Windows.Forms.ListBox track_list;
         private System.Windows.Forms.PictureBox pic_art;
         private AxWMPLib.AxWindowsMediaPlayer player;
+        private System.Windows.Forms.TrackBar track_volume;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lbl_time_start;
+        private System.Windows.Forms.Label lbl_time_end;
     }
 }
 
