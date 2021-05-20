@@ -13,7 +13,7 @@ L'objectif principal est donc d'implémenter trois fonctionnalités dans l'appli
 2. Une fois téléchargé et installé (à laisser si possible les répértoires d'installation par défaut), cliquez sur "Lancer"
 
 ## Cloner le projet
-3. Une fenêtre devrait s'afficher avec plusieurs choix dont "Cloner un dépôt", cliquez dessus. Dans le champ "Emplacement du dépôt", mettez cet URL HTTPS: https://github.com/SamirTouira/mediaplayer.git
+3. Une fenêtre devrait s'afficher avec plusieurs choix dont "Cloner un dépôt", cliquez dessus. Dans le champ "Emplacement du dépôt", mettez cet URL HTTPS: https://github.com/SamirTouira/windowsmediaplayer.git
 
 En dessous, le champ "Chemin" sera tout simplement l'endoit où le repo Github sera cloné, par défault on a comme :
 >            C:\Users\(username)\Source\Repos
