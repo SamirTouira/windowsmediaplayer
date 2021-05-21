@@ -55,6 +55,7 @@ namespace WindowsFormsApp1
         {
             player.URL = paths[track_list.SelectedIndex];
             player.Ctlcontrols.play();
+            txt.Text = track_list.Text;
             try
             {
                 var file = TagLib.File.Create(paths[track_list.SelectedIndex]);
@@ -79,6 +80,7 @@ namespace WindowsFormsApp1
 
         private void btn_play_Click(object sender, EventArgs e)
         {
+            player.URL = @Recent_list.Text;
             player.Ctlcontrols.play();
         }
 
@@ -113,9 +115,33 @@ namespace WindowsFormsApp1
             player.Ctlcontrols.currentPosition = player.currentMedia.duration * e.X / p_bar.Width;
         }
 
+        private void Favorite_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Recent_list_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txt.Text = Recent_list.Text;
+            player.URL = paths[Recent_list.SelectedIndex];
+            player.Ctlcontrols.play();
+
+            try
+            {
+                var file = TagLib.File.Create(paths[Recent_list.SelectedIndex]);
+                var bin = (byte[])(file.Tag.Pictures[0].Data.Data);
+                pic_art.Image = Image.FromStream(new MemoryStream(bin));
+            }
+            catch
+            {
+
+            }
+        }
+
         private void btn_open_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
+            List<string> str = new List<string>();
             ofd.Multiselect = true;
             if (ofd.ShowDialog() ==System.Windows.Forms.DialogResult.OK)
             {
@@ -125,6 +151,11 @@ namespace WindowsFormsApp1
                 {
                     track_list.Items.Add(files[i]);
                 }
+            }
+            foreach (string s in ofd.FileNames)
+            {
+                Recent_list.Items.Add(Path.GetFullPath(s));
+                str.Add(s);
             }
         }
     }

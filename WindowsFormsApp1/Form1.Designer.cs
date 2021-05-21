@@ -48,6 +48,14 @@
             this.lbl_time_end = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.txt = new System.Windows.Forms.TextBox();
+            this.Recent_list = new System.Windows.Forms.ListBox();
+            this.Favorite_list = new System.Windows.Forms.ListBox();
+            this.btn_favorite = new System.Windows.Forms.Button();
+            this.btn_save = new System.Windows.Forms.Button();
+            this.btn_delete = new System.Windows.Forms.Button();
+            this.btn_load = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pic_art)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.player)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.track_volume)).BeginInit();
@@ -242,12 +250,96 @@
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // txt
+            // 
+            this.txt.Location = new System.Drawing.Point(14, 338);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(611, 20);
+            this.txt.TabIndex = 16;
+            // 
+            // Recent_list
+            // 
+            this.Recent_list.FormattingEnabled = true;
+            this.Recent_list.Location = new System.Drawing.Point(14, 389);
+            this.Recent_list.Name = "Recent_list";
+            this.Recent_list.Size = new System.Drawing.Size(611, 56);
+            this.Recent_list.TabIndex = 17;
+            this.Recent_list.SelectedIndexChanged += new System.EventHandler(this.Recent_list_SelectedIndexChanged);
+            // 
+            // Favorite_list
+            // 
+            this.Favorite_list.FormattingEnabled = true;
+            this.Favorite_list.Location = new System.Drawing.Point(14, 498);
+            this.Favorite_list.Name = "Favorite_list";
+            this.Favorite_list.Size = new System.Drawing.Size(611, 56);
+            this.Favorite_list.TabIndex = 18;
+            this.Favorite_list.SelectedIndexChanged += new System.EventHandler(this.Favorite_list_SelectedIndexChanged);
+            // 
+            // btn_favorite
+            // 
+            this.btn_favorite.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_favorite.Location = new System.Drawing.Point(14, 459);
+            this.btn_favorite.Name = "btn_favorite";
+            this.btn_favorite.Size = new System.Drawing.Size(120, 22);
+            this.btn_favorite.TabIndex = 19;
+            this.btn_favorite.Text = "Add to Favorite";
+            this.btn_favorite.UseVisualStyleBackColor = true;
+            // 
+            // btn_save
+            // 
+            this.btn_save.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_save.Location = new System.Drawing.Point(138, 458);
+            this.btn_save.Name = "btn_save";
+            this.btn_save.Size = new System.Drawing.Size(120, 22);
+            this.btn_save.TabIndex = 20;
+            this.btn_save.Text = "Save";
+            this.btn_save.UseVisualStyleBackColor = true;
+            // 
+            // btn_delete
+            // 
+            this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_delete.Location = new System.Drawing.Point(264, 458);
+            this.btn_delete.Name = "btn_delete";
+            this.btn_delete.Size = new System.Drawing.Size(120, 22);
+            this.btn_delete.TabIndex = 21;
+            this.btn_delete.Text = "Delete";
+            this.btn_delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_load
+            // 
+            this.btn_load.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_load.Location = new System.Drawing.Point(390, 459);
+            this.btn_load.Name = "btn_load";
+            this.btn_load.Size = new System.Drawing.Size(120, 22);
+            this.btn_load.TabIndex = 22;
+            this.btn_load.Text = "Load";
+            this.btn_load.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Location = new System.Drawing.Point(14, 365);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 16);
+            this.label2.TabIndex = 23;
+            this.label2.Text = "Recent files:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(634, 548);
+            this.ClientSize = new System.Drawing.Size(634, 566);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_load);
+            this.Controls.Add(this.btn_delete);
+            this.Controls.Add(this.btn_save);
+            this.Controls.Add(this.btn_favorite);
+            this.Controls.Add(this.Favorite_list);
+            this.Controls.Add(this.Recent_list);
+            this.Controls.Add(this.txt);
             this.Controls.Add(this.lbl_time_end);
             this.Controls.Add(this.lbl_time_start);
             this.Controls.Add(this.track_volume);
@@ -296,6 +388,14 @@
         private System.Windows.Forms.Label lbl_time_end;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.TextBox txt;
+        private System.Windows.Forms.ListBox Recent_list;
+        private System.Windows.Forms.ListBox Favorite_list;
+        private System.Windows.Forms.Button btn_favorite;
+        private System.Windows.Forms.Button btn_save;
+        private System.Windows.Forms.Button btn_delete;
+        private System.Windows.Forms.Button btn_load;
+        private System.Windows.Forms.Label label2;
     }
 }
 
