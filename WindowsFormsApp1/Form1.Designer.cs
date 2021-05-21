@@ -247,7 +247,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(634, 341);
+            this.ClientSize = new System.Drawing.Size(634, 548);
             this.Controls.Add(this.lbl_time_end);
             this.Controls.Add(this.lbl_time_start);
             this.Controls.Add(this.track_volume);
